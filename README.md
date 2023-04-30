@@ -10,8 +10,8 @@ T-Shirt-Builder a full-stack web application that allows the user to create thei
 - 🎨Consistent and visually appealing design with TailwindCSS.
 
 ## Deployed in:
-Firebase - https://national-lottery-game.web.app/
-Render - https://t-shirt-builder-api.onrender.com
+- Firebase - https://national-lottery-game.web.app/
+- Render - https://t-shirt-builder-api.onrender.com
 
 ## 🛠️API Used
 OpenAI API (AI image generation)
