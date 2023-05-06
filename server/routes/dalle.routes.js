@@ -30,16 +30,22 @@ router.route('/').post(async (req, res) => {
          response_format: 'b64_json'
       });
 
+     
+
       //Get the image from the response
       const image = response.data.data[0].b64_json;
 
-
-      //Send the image back to the client
-      res.status(200).json({photo:image});
+      //Send the image back to the client if the image is not null
+      if(image){
+         res.status(200).json({photo:image});
+      }
+      else{
+         res.status(500).json({message: "[Error] Image couldn't be fetched!"});
+      }
 
    } catch (error) {
       console.error(error);
-      res.status(500).json({message: "Something went wrong!"});
+      res.status(500).json({message: "[Error] Something went wrong!"});
    }   
 });
 

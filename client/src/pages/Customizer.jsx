@@ -58,7 +58,7 @@ const Customizer = () => {
             setGeneratingImg(true);
 
         
-            const response = await fetch('https://t-shirt-builder-api.onrender.com/api/v1/dalle', {
+            const response = await fetch(`${config.production.backendUrl}`, {
                method: 'POST',
                headers: {
                 'Content-Type': 'application/json',
@@ -69,9 +69,16 @@ const Customizer = () => {
             });
 
             const data = await response.json();
-            
-            // Render the image on the canvas (from base64 format)
-            handleDecals(type, `data:image/png;base64,${data.photo}`);
+
+            // Render the image on the canvas (from base64 format) if the date is loaded otherwise display an error message
+            if(data.photo) {
+                handleDecals(type, `data:image/png;base64,${data.photo}`);
+              
+            }
+            else{
+                return alert("Something went wrong! Please try again.");
+            }
+
 
         }catch (error){
             alert(error);
