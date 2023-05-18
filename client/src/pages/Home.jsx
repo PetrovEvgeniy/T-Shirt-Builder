@@ -39,7 +39,7 @@ const Home = () => {
                     >
                         <p className="max-w-md font-normal text-gray-600 text-base">
                             Create your unique and exlusive shirt with our brand-new 3D customization tool.
-                            <strong>Uleash your imagination</strong>{" "}
+                            <strong>Unleash your imagination</strong>{" "}
                             and define your style.
                         </p>
 
