@@ -21,7 +21,6 @@ router.route('/').post(async (req, res) => {
       //Get the prompt from the request body
       const { prompt } = req.body;
 
-
       //Call the OpenAI API to create an image
       const response = await openai.createImage({
          prompt: prompt,
@@ -44,7 +43,12 @@ router.route('/').post(async (req, res) => {
       }
 
    } catch (error) {
-      console.error(error);
+      if (error.response) {
+         console.log(error.response.status);
+         console.log(error.response.data);
+       } else {
+         console.log(error.message);
+       }
       res.status(500).json({message: "[Error] Something went wrong!"});
    }   
 });
